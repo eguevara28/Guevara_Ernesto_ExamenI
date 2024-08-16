@@ -195,7 +195,7 @@ public class Guevara_Ernesto_ExamenI {
             }
 
             if (op == 5) {
-                System.out.println("HASTA LUEGO");
+                System.out.println("Hasta Luego");
                 break;
             }
 
