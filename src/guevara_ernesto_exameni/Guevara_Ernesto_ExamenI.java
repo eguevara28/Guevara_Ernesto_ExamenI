@@ -74,7 +74,8 @@ public class Guevara_Ernesto_ExamenI {
                     }
 
                     double promedio = suma / contador;
-                    System.out.println("El promedio de los numeros ingresados fue: " + promedio);
+                    System.out.print("El promedio de los numeros ingresados fue: ");
+                    System.out.println(String.format("%.2f", promedio));
                     System.out.println("El numero mayor ingresado fue: " + numeromayor);
                 } catch (Exception e) {
                     System.out.println("Ingreso un tipo de dato que no corresponde lo pedido");
@@ -150,7 +151,8 @@ public class Guevara_Ernesto_ExamenI {
                         System.out.println("Pago por Canales Normales: " + normal * canalesnormales);
                         System.out.println("Pago por Canales HD: " + hd * canaleshd);
                         System.out.println("Pago por Caja " + caja + " : " + preciocaja);
-                        System.out.println("Impuestos: " + impuesto);
+                        System.out.print("Impuestos: ");
+                        System.out.println(String.format("%.2f", impuesto));
                         System.out.println("Total: " + total);
                         break;
                     } catch (Exception e) {
