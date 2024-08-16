@@ -11,30 +11,47 @@ import java.util.Scanner;
 public class Guevara_Ernesto_ExamenI {
     public static void main(String[] args) {
         
-        Scanner lea=new Scanner(System.in);
+        Scanner lea=new Scanner(System.in).useDelimiter("\n");
         
         while(true){
+            int op=0;
+            try{
             System.out.println("*** Menu ***");
             System.out.println("1. Piramide");
             System.out.println("2. El Mayor");
             System.out.println("3. Cliente TV");
             System.out.println("4. Caracter Vocales");
-            int op=lea.nextInt();
+            System.out.println("5. Salir");
+            op=lea.nextInt();
+            }catch(Exception e){
+                System.out.println("Ingrese un tipo de dato que no correspondia");
+                lea.nextLine();
+            }
             
             if(op==1){
+                while(true){
+                try{
                 System.out.println("Ingrese la cantidad de filas de la piramide: ");
                 int filas=lea.nextInt(), inicio=1;
-                
-                for (int i = 0; i < filas; i++) {
-                    int suma=1;
-                    for (int j = 0; j < 10; j++) {
-                        System.out.print(inicio+" ");
-                        inicio+=2;
+                for (int i = 1; i <= filas; i++) {
+                    int suma = 0;
+                    for (int j = 1; j <= i; j++) {
+                    System.out.print(inicio + " ");
+                    suma += inicio;
+                    inicio += 2;
                     }
-                    System.out.println("="+suma);
+                    System.out.println("= " + suma);
                 }
-    }
+                break;
+                }catch(Exception e){
+                    System.out.println("Ingreso un tipo de dato que no correspondia a lo que se le solicitaba");
+                    lea.nextLine();
+                }
+                }
+        }
+            
             if(op==2){
+                try{
                 int numeromayor=0, contador=0, suma=0;
                 while(true){
                     System.out.println("Cuando quiera salir ingrese: No");
@@ -53,12 +70,19 @@ public class Guevara_Ernesto_ExamenI {
                     }                    
                 }
                 
-                System.out.println("El numero mayor ingresado fue: "+numeromayor);
                 double promedio=suma/contador;
                 System.out.println("El promedio de los numeros ingresados fue: "+promedio);
+                System.out.println("El numero mayor ingresado fue: "+numeromayor);               
+                }catch(Exception e){
+                    System.out.println("Ingreso un tipo de dato que no corresponde lo pedido");
+                    lea.nextLine();
+                }
+                
             }
             
             if(op==3){
+                while(true){
+                try{
                 System.out.println("Ingrese su nombre: ");
                 String cliente=lea.next();
                 int llave=0, hd=0, normal=0, canalesnormales=20, canaleshd=30;
@@ -118,49 +142,51 @@ public class Guevara_Ernesto_ExamenI {
                 System.out.println("Pago por Canales HD: "+hd*canaleshd);
                 System.out.println("Pago por Caja "+caja+" : "+preciocaja);
                 System.out.println("Impuestos: "+impuesto);
-                System.out.println("Total: "+total);                
+                System.out.println("Total: "+total); 
+                break;
+                }catch(Exception e){
+                    System.out.println("Ingreso un tipo de dato que no correspondia con lo pedido");
+                    lea.nextLine();
                 }
+                }
+            }
             
             if(op==4){
+                try{
                 System.out.println("Escriba una palabra: ");
                 String palabra=lea.next().toLowerCase(), vocalmasrepetida="";
-                int vocala=0,vocale=0,vocali=0,vocalo=0,vocalu=0;
+                int vocal=0;
                 
                 for (int i = 0; i <= palabra.length()-1; i++) {
                     char letra=palabra.charAt(i);
                     
                     switch(letra){
-                        case 'a': vocala++;
-                                  vocalmasrepetida="a";
+                        case 'a': vocal++;
                                   break;
-                        case 'e': vocale++;
-                                  vocalmasrepetida="e";
+                        case 'e': vocal++;
                                   break;
-                        case 'i': vocali++;
-                                  vocalmasrepetida="i";
+                        case 'i': vocal++;
                                   break;
-                        case 'o': vocalo++;
-                                  vocalmasrepetida="o";
+                        case 'o': vocal++;
                                   break;
-                        case 'u': vocalu++;
-                                  vocalmasrepetida="u";
+                        case 'u': vocal++;
                                   break;
                     }
                     }
                 
-                int repeticiones=(vocala>vocale && vocala>vocali && vocala>vocalo && vocala>vocalu)? vocala:
-                        (vocale>vocala && vocale>vocali && vocale>vocalo && vocale>vocalu)? vocale:
-                        (vocali>vocala && vocali>vocale && vocali>vocalo && vocali>vocalu)? vocali:
-                        (vocalo>vocala && vocalo>vocale && vocalo>vocali && vocalo>vocalu)? vocalo:
-                        (vocalu>vocala && vocalu>vocale && vocalu>vocali && vocalu>vocalo)? vocalu:0;
-                
-                System.out.println("La vocal mas repetida fue: "+vocalmasrepetida);
-                System.out.println("Se repitio: "+repeticiones+" veces");
+                System.out.println("Hay "+vocal+" vocales en esta palabra");
+                }catch(Exception e){
+                    System.out.println("Ingrese un tipo de dato que no correspondia a lo pedido");
+                }
                 }
             
             if(op==5){
                 System.out.println("HASTA LUEGO");
                 break;
+            }
+            
+            if(op!=1 && op!=2 && op!=3 && op!=4 && op!=5){
+                System.out.println("Esta no es una opcion");
             }
             }
             }
